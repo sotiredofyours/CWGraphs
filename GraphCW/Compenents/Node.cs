@@ -31,6 +31,7 @@ public class Node
     {
         if (!graph.Nodes.Contains(node1) || !graph.Nodes.Contains(node2)) throw new ArgumentException();
         var edge = new Edge(node1, node2);
+        if (node1.IncidentNodes.Contains(node2)) return edge;
         node1._edges.Add(edge);
         node2._edges.Add(edge);
         return edge;
