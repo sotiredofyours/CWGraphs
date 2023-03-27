@@ -12,7 +12,7 @@ public static class GraphGenerator
         {
             var from = rnd.Next(nodes - 1);
             var to = rnd.Next(nodes - 1);
-            while (graph.IsConnected(graph[from], graph[to]) || from == to)
+            while (graph.IsConnected(graph[from], graph[to]) && from == to)
             {
                 to = rnd.Next(nodes - 1);
             }
