@@ -18,4 +18,7 @@ for (int i = 0; i < edges; i++)
 var graph = GraphCreator.CreateGraph(nodes, edges, connections);
 var path = PathFinder.FindLongestPath(graph);
 
-Console.WriteLine($"Longest simple = { path }");
+Console.WriteLine($"Longest simple path = { path.Length }");
+Console.WriteLine(string.Join(" -> ", path));
+
+

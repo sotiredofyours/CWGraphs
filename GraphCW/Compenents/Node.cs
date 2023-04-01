@@ -41,4 +41,9 @@ public class Node
         edge.First._edges.Remove(edge);
         edge.Second._edges.Remove(edge);
     }
+
+    public override string ToString()
+    {
+        return NodeNumber.ToString();
+    }
 }
