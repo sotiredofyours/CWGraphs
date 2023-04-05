@@ -9,19 +9,18 @@ public static class PathFinder
     
     public static SinglyLinkedList<Node> FindLongestPath(Graph graph)
     {
-        Parallel.ForEach(graph.Nodes, node => FindPath(node, null, new List<Node>()));
+        Parallel.ForEach(graph.Nodes, node => FindPath(node, null));
         
         return _path; // returns null if graph.Nodes < 2.
     }
 
-    private static void FindPath(Node currentNode, SinglyLinkedList<Node> path, ICollection<Node> used)
+    private static void FindPath(Node currentNode, SinglyLinkedList<Node> path)
     {
-        used.Add(currentNode);
         var possiblePaths = currentNode.IncidentNodes
             .Where(x =>
             {
                 if (path == null) return true;
-                return x != path.Value && !used.Contains(x);
+                return !path.Contains(x);
             })
             .ToList();
 
@@ -39,8 +38,7 @@ public static class PathFinder
             FindPath(node,
                 path != null
                     ? new SinglyLinkedList<Node>(node, path)
-                    : new SinglyLinkedList<Node>(node, new SinglyLinkedList<Node>(currentNode)), 
-                used);
+                    : new SinglyLinkedList<Node>(node, new SinglyLinkedList<Node>(currentNode)));
         }
     }
 
@@ -48,20 +46,19 @@ public static class PathFinder
     {
         foreach (var node in graph.Nodes)
         {
-            FindPathSingle(node, null, new List<Node>());
+            FindPathSingle(node, null);
         }
          
         return _pathSingle;
     }
     
-    private static void FindPathSingle(Node currentNode, SinglyLinkedList<Node> path, ICollection<Node> used)
+    private static void FindPathSingle(Node currentNode, SinglyLinkedList<Node> path)
     {
-        used.Add(currentNode);
         var possiblePaths = currentNode.IncidentNodes
             .Where(x =>
             {
                 if (path == null) return true;
-                return x != path.Value && !used.Contains(x);
+                return !path.Contains(x);
             })
             .ToList();
 
@@ -76,11 +73,11 @@ public static class PathFinder
         
         foreach (var node in possiblePaths)
         {
-            FindPath(node,
+            FindPathSingle(node,
                 path != null
                     ? new SinglyLinkedList<Node>(node, path)
-                    : new SinglyLinkedList<Node>(node, new SinglyLinkedList<Node>(currentNode)), 
-                used);
+                    : new SinglyLinkedList<Node>(node, new SinglyLinkedList<Node>(currentNode))
+                );
         }
     }
 }
