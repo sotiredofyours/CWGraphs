@@ -6,17 +6,17 @@ namespace GraphCW.Benchmarks;
 [RankColumn]
 public class PathFinderBenchmarks
 {
-    private Graph graph = GraphGenerator.GenerateGraph(100, 100);
+    private readonly Graph _graph = GraphGenerator.GenerateGraph(30, 100);
     
     [Benchmark]
     public void MultiThreadTest()
     {
-        PathFinder.FindLongestPath(graph);
+        PathFinder.FindLongestPath(_graph);
     }
     
     [Benchmark]
     public void SingleThreadTest()
     {
-        PathFinder.FindLongestPathSingle(graph);
+        PathFinder.FindLongestPathSingle(_graph);
     }
 }

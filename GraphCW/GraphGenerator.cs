@@ -2,12 +2,12 @@
 
 public static class GraphGenerator
 {
-    public static Graph GenerateGraph(int minNodes, int maxNodes)
+    public static Graph GenerateGraph(int maxNodes, int maxEdges)
     {
         var rnd = new Random();
-        var nodes = rnd.Next(minNodes, maxNodes);
+        var nodes = rnd.Next(maxNodes);
         var graph = new Graph(nodes);
-        var edges = rnd.Next(nodes, nodes * (nodes - 1) / 2);
+        var edges = rnd.Next(nodes, Math.Min(nodes * (nodes - 1) / 2, maxEdges));
         for (int i = 0; i < edges; i++)
         {
             var from = rnd.Next(nodes - 1);
