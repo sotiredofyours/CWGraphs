@@ -6,6 +6,7 @@ public static class PathFinder
     private static volatile int  _maxPathSingle;
     private static volatile SinglyLinkedList<Node> _path;
     private static volatile SinglyLinkedList<Node> _pathSingle;
+    private static object obj = new();
     
     public static SinglyLinkedList<Node> FindLongestPath(Graph graph)
     {
@@ -26,10 +27,13 @@ public static class PathFinder
 
         if (!possiblePaths.Any() && path != null)
         {
-            if (path.Length > _maxPath)
-            { 
-                _maxPath = path.Length;
-                _path = path;
+            lock (obj)
+            {
+                if (path.Length > _maxPath)
+                {
+                    _maxPath = path.Length;
+                    _path = path;
+                }
             }
         }
         
