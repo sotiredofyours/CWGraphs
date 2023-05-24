@@ -2,19 +2,18 @@
 
 public static class GraphGenerator
 {
-    public static Graph GenerateGraph(int maxNodes, int maxEdges)
+    public static Graph GenerateGraph(int nodes, int edges)
     {
         var rnd = new Random();
-        var nodes = rnd.Next(maxNodes);
         var graph = new Graph(nodes);
-        var edges = rnd.Next(nodes, Math.Min(nodes * (nodes - 1) / 2, maxEdges));
         for (int i = 0; i < edges; i++)
         {
             var from = rnd.Next(nodes - 1);
             var to = rnd.Next(nodes - 1);
-            while (graph.IsConnected(graph[from], graph[to]) && from == to)
+            while (graph.IsConnected(graph[from], graph[to]) || from == to)
             {
                 to = rnd.Next(nodes - 1);
+                from = rnd.Next(nodes - 1);
             }
             graph.Connect(to, from);
         }

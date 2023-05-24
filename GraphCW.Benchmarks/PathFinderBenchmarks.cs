@@ -6,8 +6,16 @@ namespace GraphCW.Benchmarks;
 [RankColumn]
 public class PathFinderBenchmarks
 {
-    private readonly Graph _graph = GraphGenerator.GenerateGraph(30, 100);
-    
+    [ParamsSource(nameof(ValuesForGraph))]
+    public Graph _graph;
+    public static IEnumerable<Graph> ValuesForGraph() => new[]
+    {
+        GraphGenerator.GenerateGraph(10, 20), 
+        GraphGenerator.GenerateGraph(15, 30), 
+        GraphGenerator.GenerateGraph(20, 40),
+        GraphGenerator.GenerateGraph(25, 50),
+    };
+
     [Benchmark]
     public void MultiThreadTest()
     {
