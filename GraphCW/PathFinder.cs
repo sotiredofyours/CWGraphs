@@ -10,6 +10,8 @@ public static class PathFinder
     
     public static SinglyLinkedList<Node> FindLongestPath(Graph graph)
     {
+        _maxPath = 0;
+        _path = null;
         Parallel.ForEach(graph.Nodes, node => FindPath(node, null));
         
         return _path; // returns null if graph.Nodes < 2.

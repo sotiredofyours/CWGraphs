@@ -5,7 +5,7 @@
 /// </summary>
 public class Node
 {
-    readonly List<Edge> _edges = new List<Edge>();
+    readonly List<Edge> _edges = new();
     
     public readonly int NodeNumber;
 

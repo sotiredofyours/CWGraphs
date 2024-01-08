@@ -1,0 +1,71 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1000"
+        x:Class="CWGraphs.Client.Views.About"
+        Title="MusicStoreWindow"
+        Width="800"
+        Height="800"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="True">
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        <Panel>
+             <TextBlock Margin="30" FontSize="40">
+                                   Help
+             </TextBlock>
+            <Grid
+                Margin="70 100 0 0"
+                RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,*">
+                <TextBlock Grid.Row="0" FontSize="20" TextWrapping="Wrap">
+                    <Run FontWeight="Bold">Main problem</Run> 
+                </TextBlock>
+                <TextBlock Grid.Row="1" FontSize="18" TextWrapping="Wrap" Margin="10">
+                    In graph theory and theoretical computer science, the longest path problem 
+                    is the problem of finding a simple path of maximum length in a given graph.
+                    A path is called simple if it does not have any repeated vertices; the length of a path may either be measured by its number of edges, 
+                    or (in weighted graphs) by the sum of the weights of its edges. In contrast to the shortest path problem, which can be solved in polynomial 
+                    time in graphs without negative-weight cycles, the longest path problem is NP-hard and the decision version of the problem, 
+                    which asks whether a path exists of at least some given length, is NP-complete.
+                </TextBlock>
+                <TextBlock Grid.Row="2" FontSize="20" TextWrapping="Wrap">
+                    <Run FontWeight="Bold">About</Run>  - shows this window. 
+                </TextBlock>
+                <TextBlock Grid.Row="3" FontSize="20" TextWrapping="Wrap">
+                    <Run FontWeight="Bold">Add node </Run> - adds node to the graph. 
+                </TextBlock>
+                <TextBlock Grid.Row="4"  FontSize="20" TextWrapping="Wrap">
+                    <Run FontWeight="Bold">Connect </Run> - connect 2 nodes. Press again to cancel. 
+                </TextBlock>
+                <TextBlock Grid.Row="5" FontSize="20" TextWrapping="Wrap">
+                    <Run FontWeight="Bold">Disconnect </Run> - disconnect 2 nodes. Press again to cancel. 
+                </TextBlock>
+                <TextBlock Grid.Row="6" FontSize="20" TextWrapping="Wrap">
+                    <Run FontWeight="Bold">Remove node </Run> - removes node from the graph.  
+                </TextBlock>
+                <TextBlock Grid.Row="7"  FontSize="20" TextWrapping="Wrap">
+                    <Run FontWeight="Bold">Calculate path </Run> - calculates longest path in the graph.
+                </TextBlock>
+                <TextBlock Grid.Row="8"  FontSize="20" TextWrapping="Wrap">
+                    <Run FontWeight="Bold">Export </Run> - exports graph.
+                </TextBlock>
+                <TextBlock Grid.Row="9"  FontSize="20" TextWrapping="Wrap">
+                    <Run FontWeight="Bold">Import </Run> - imports graph.
+                </TextBlock>
+            
+                <TextBlock Grid.Row="10" FontSize="16" Margin="110 80 0 0" TextWrapping="Wrap">
+                    <Run FontWeight="Bold" FontStyle="Italic">Created by Polyanskih Sergey </Run> 
+                </TextBlock>
+            </Grid>
+        </Panel>
+    </Panel>
+</Window>

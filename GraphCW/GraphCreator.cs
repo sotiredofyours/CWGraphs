@@ -2,7 +2,7 @@
 
 public static class GraphCreator
 {
-    public static Graph CreateGraph(int nodes, int edges, IEnumerable<string> edgesCommands)
+    public static Graph CreateGraph(int nodes, IEnumerable<string> edgesCommands)
     {
         var graph = new Graph(nodes);
         foreach (var con in edgesCommands)
@@ -12,7 +12,7 @@ public static class GraphCreator
         }
         return graph;
     }
-
+    
     private static (int, int) ParseConnection(string connection)
     {
         var parts = connection.Split(" ", StringSplitOptions.RemoveEmptyEntries);

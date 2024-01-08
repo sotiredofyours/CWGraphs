@@ -1,0 +1,58 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="450"
+        x:Class="CWGraphs.Client.Views.MainWindow"
+        Title="Graph Creator"
+        ExtendClientAreaToDecorationsHint="True"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        >
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="1"
+                    MaterialOpacity="0.65" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        <StackPanel Orientation="Horizontal" Margin="30">
+            <Button Click = "ShowAbout" DockPanel.Dock="Top" HorizontalAlignment="Right" VerticalAlignment="Top">About</Button>
+            <Button Click="AddNode" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">Add node</Button>
+            <Button Click = "ConnectNodes" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">Connect</Button>
+            <Button Click = "DisconnectNodes" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">Disconnect</Button>
+            <Button Click = "RemoveNode" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">Remove node</Button>
+            <Button Click= "CalculatePath" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">Calculate path</Button>
+            <Button Click="Export" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">Export</Button>
+            <Button Click="Import" DockPanel.Dock="Top" HorizontalAlignment="Left" VerticalAlignment="Top">Import</Button>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Center" 
+                           Margin="30 -10 0 -10"> Size of node</TextBlock>
+                <Slider 
+                    Grid.Row="0"
+                    Minimum="30"
+                    Maximum="150"
+                    Margin="40 0 0 0" Name="Slider" Width="200" Padding="0 -10"/>
+             </Grid>
+            
+        </StackPanel>
+        <Canvas Name = "MainCanvas" Background="DimGray" Margin="30, 100, 30, 10">
+        </Canvas>
+        
+        <ProgressBar 
+            Margin="0, 60, 30, 0"
+            Name="ProgressBar"
+            DataContext=""
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            IsVisible="False"
+            IsIndeterminate="True"/>
+    </Panel>
+</Window>
