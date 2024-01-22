@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="1000"
         x:Class="CWGraphs.Client.Views.About"
-        Title="MusicStoreWindow"
+        Title="About"
         Width="800"
         Height="800"
         TransparencyLevelHint="AcrylicBlur"

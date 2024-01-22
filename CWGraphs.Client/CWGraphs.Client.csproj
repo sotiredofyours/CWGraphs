@@ -40,10 +40,4 @@
   <ItemGroup>
     <ProjectReference Include="..\GraphCW\GraphCW.csproj" />
   </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Assets\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
 </Project>
